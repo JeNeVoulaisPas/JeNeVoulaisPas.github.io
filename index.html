@@ -742,23 +742,31 @@
                 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
                 <script>
                     (function() {
-                        emailjs.init("6ZQgQEWG5Bni5KHHZ"); // replace with your EmailJS public key
+                        emailjs.init("6ZQgQEWG5Bni5KHHZ"); // Ton EmailJS public key
                     })();
 
                     document.getElementById('contact-form').addEventListener('submit', function(e) {
                         e.preventDefault();
+                        const form = this;
+                        const btn = form.querySelector('button');
 
-                        emailjs.sendForm('service_or2o21d', 'template_jpd1uew', this)
+                        btn.textContent = 'Sending...';
+
+                        // Remplace par ton service ID et template ID EmailJS
+                        const serviceID = 'service_or2o21d';
+                        const templateID = 'template_jpd1uew';
+
+                        emailjs.sendForm(serviceID, templateID, form)
                             .then(() => {
                                 alert('✅ Thank you for your message! I will get back to you soon.');
-                                this.reset();
+                                form.reset();
+                                btn.textContent = 'Send Message';
                             }, (error) => {
                                 alert('❌ Oops! Something went wrong...\n' + JSON.stringify(error));
+                                btn.textContent = 'Send Message';
                             });
                     });
                 </script>
-
-
             </div>
         </div>
     </section>
@@ -797,13 +805,6 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
         });
 
         // Animate skill bars when they come into view
