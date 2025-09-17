@@ -738,17 +738,17 @@
             color: #4CAF50;
         }
 
-        /* Padding bottom pour toutes les "cases" de la section Skills */
+        /* Margin bottom pour toutes les "cases" de la section Skills */
         #skills .skill-category,
         #skills .skill-card,
         #skills .skill-column {
-            padding-bottom: 20px; /* padding uniforme en bas */
+            margin-bottom: 20px; /* marge uniforme en bas */
         }
 
         /* Skill cards with hover */
         .skill-card {
             background: var(--background-light);
-            padding: 16px;
+            padding: 16px; /* padding interne */
             border-radius: 8px;
             transition: background 0.3s, transform 0.3s;
             box-shadow: 0 10px 30px rgba(45, 138, 87, 0.2); /* Ombre verte */
@@ -800,8 +800,6 @@
             transform: translateX(4px);
         }
     </style>
-
-
 
 
     <!-- Projects Section -->
