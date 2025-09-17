@@ -719,7 +719,7 @@
         .skills-columns {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem; /* Ajout d'un léger écart entre les cards */
+            gap: 1.5rem; /* espace horizontal et vertical */
         }
 
         .skill-column h4 {
@@ -736,6 +736,13 @@
         .skill-list li::before {
             content: "➤  ";
             color: #4CAF50;
+        }
+
+        /* Padding bottom pour toutes les "cases" de la section Skills */
+        #skills .skill-category,
+        #skills .skill-card,
+        #skills .skill-column {
+            padding-bottom: 20px; /* padding uniforme en bas */
         }
 
         /* Skill cards with hover */
@@ -793,6 +800,7 @@
             transform: translateX(4px);
         }
     </style>
+
 
 
 
