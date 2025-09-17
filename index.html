@@ -607,6 +607,22 @@
         <div class="container">
             <h2 class="section-title">Skills</h2>
 
+            <!-- Soft Skills -->
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <ul class="env-list">
+                        <li>Teamwork</li>
+                        <li>Leadership</li>
+                        <li>Adaptability</li>
+                        <li>General Knowledge</li>
+                        <li>Sociability</li>
+                        <li>Ability to Learn</li>
+                    </ul>
+                    <p><i class="fas fa-car"></i> Holder of a driving license (B)</p>
+                </div>
+            </div>
+
             <!-- Programming Languages in 3 Columns -->
             <div class="skill-category full-width">
                 <h3><i class="fas fa-code"></i> Programming Languages</h3>
@@ -646,73 +662,37 @@
                 </div>
             </div>
 
-            <!-- Soft Skills -->
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <ul class="env-list">
-                        <li>Teamwork</li>
-                        <li>Leadership</li>
-                        <li>Adaptability</li>
-                        <li>General Knowledge</li>
-                        <li>Sociability</li>
-                        <li>Ability to Learn</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 3 Columns aligned with Languages -->
+            <!-- 3 Cards aligned under Languages -->
             <div class="skills-columns">
 
                 <!-- Web Development -->
-                <div class="skill-column">
+                <div class="skill-card">
                     <h3><i class="fas fa-globe"></i> Web Development</h3>
-                    <div class="skill-item">
-                        <span>Angular</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Blazor</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>ReactJS</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
-                    </div>
+                    <ul class="card-list">
+                        <li>Angular</li>
+                        <li>Blazor</li>
+                        <li>ReactJS</li>
+                    </ul>
                 </div>
 
                 <!-- Databases -->
-                <div class="skill-column">
+                <div class="skill-card">
                     <h3><i class="fas fa-database"></i> Databases</h3>
-                    <div class="skill-item">
-                        <span>SQLite</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>SQL Server</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Oracle</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div>
-                    </div>
+                    <ul class="card-list">
+                        <li>SQLite</li>
+                        <li>SQL Server</li>
+                        <li>Oracle</li>
+                    </ul>
                 </div>
 
                 <!-- Graphics -->
-                <div class="skill-column">
+                <div class="skill-card">
                     <h3><i class="fas fa-paint-brush"></i> Graphics</h3>
-                    <div class="skill-item">
-                        <span>SDL2</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Kivy</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Revolution GX</span>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 55%"></div></div>
-                    </div>
+                    <ul class="card-list">
+                        <li>SDL2</li>
+                        <li>Kivy</li>
+                        <li>Revolution GX</li>
+                    </ul>
                 </div>
 
             </div>
@@ -756,6 +736,32 @@
             color: #4CAF50;
         }
 
+        /* Skill cards with hover */
+        .skill-card {
+            background: #f5f5f5;
+            padding: 16px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .skill-card:hover {
+            background: #e0e0e0;
+            transform: translateY(-4px);
+        }
+        .skill-card h3 {
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .card-list {
+            list-style: none;
+            padding: 0;
+        }
+        .card-list li::before {
+            content: "➤ ";
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
         /* Styled environment list */
         .env-list {
             list-style: none;
@@ -772,10 +778,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
         .env-list li:hover {
             background: #e0e0e0;
+            transform: translateX(4px);
         }
     </style>
 
