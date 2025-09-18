@@ -1,1087 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paul Quinzi Portfolio - Computer science engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-green: #2d8a57;
-            --secondary-green: #4caf50;
-            --light-green: #81c784;
-            --dark-green: #1b5e3f;
-            --accent-green: #66bb6a;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --background-light: #f8fffe;
-            --card-background: #ffffff;
-            --shadow: 0 10px 30px rgba(45, 138, 87, 0.1);
-            --gradient: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--gradient);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        nav.scrolled {
-            padding: 0.5rem 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-light);
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: var(--light-green);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--light-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-light);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.03"/><circle cx="10" cy="50" r="1" fill="%23ffffff" opacity="0.03"/><circle cx="90" cy="30" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--card-background);
-            color: var(--primary-green);
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(45, 138, 87, 0.2);
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary-green);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 5px solid var(--primary-green);
-            object-fit: cover;
-            box-shadow: var(--shadow);
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--text-light);
-        }
-
-        .about-text h3 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Skills Section */
-        .skills {
-            background-color: var(--card-background);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--background-light);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 30px rgba(45, 138, 87, 0.2);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(45, 138, 87, 0.25); /* Hover plus prononcé */
-        }
-
-        .skill-category h3 {
-            color: var(--primary-green);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .skill-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-left: 1rem;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 4px;
-            animation: fillBar 2s ease-in-out;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-background);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(45, 138, 87, 0.15);
-        }
-
-        .project-image {
-            height: 200px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 3rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-        }
-
-        .project-content p {
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 8px 16px;
-            background: var(--primary-green);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: background 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: var(--dark-green);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--gradient);
-            color: var(--text-light);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            gap: 1rem;
-        }
-
-        .contact-item i {
-            font-size: 1.2rem;
-            width: 20px;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--text-dark);
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gradient);
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-
-
-        .submit-btn {
-            background: var(--card-background);
-            color: var(--primary-green);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--light-green);
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-green);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--light-green);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fillBar {
-            from {
-                width: 0;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="#" class="logo">Paul Quinzi</a>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#interests">Interests</a></li>
-                    <li><a href="#contact">Contact</a></li>
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="container">
+        <div class="nav-container">
+            <a href="#" class="logo">Paul Quinzi</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p class="hero-subtitle">Computer Science & Modeling Engineer | From code to strategy, leading teams and connecting domains</p>
+            <a href="#about" class="cta-button">Learn More About Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="profile-pic">
+                    <img src="profile.jpg" alt="Profile Picture">
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Hello! I’m a Computer Science and Modeling Engineer</h3>
+                <p>I’m passionate about software development, algorithms, and problem-solving. With experience ranging from video game design to embedded systems, I enjoy transforming complex ideas into reliable, efficient, and creative solutions.</p>
+                <p>My journey has taken me through a variety of projects: developing an official Tetris game, creating a Minecraft port on Wii under strict constraints, and building a sports database web application during an international internship at Trinity College Dublin. Currently, I’m applying my skills at Michelin, where I work on predictive maintenance algorithms in embedded systems.</p>
+                <p>Beyond coding, I enjoy exploring fields like machine learning, optimization, and 3D modeling. I also cultivate personal passions in music, athletics, and geography, which keep me curious, disciplined, and creative in both work and life.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+        <h2 class="section-title">My Skills</h2>
+
+        <!-- Soft Skills -->
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                <ul class="env-list">
+                    <li>Teamwork</li>
+                    <li>Leadership</li>
+                    <li>Adaptability</li>
+                    <li>General Knowledge</li>
+                    <li>Sociability</li>
+                    <li>Ability to Learn</li>
                 </ul>
-                <div class="mobile-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to My Portfolio</h1>
-                <p class="hero-subtitle">Computer Science & Modeling Engineer | From code to strategy, leading teams and connecting domains</p>
-                <a href="#about" class="cta-button">Learn More About Me</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="profile-pic">
-                        <img src="profile.jpg" alt="Profile Picture">
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h3>Hello! I’m a Computer Science and Modeling Engineer</h3>
-                    <p>I’m passionate about software development, algorithms, and problem-solving. With experience ranging from video game design to embedded systems, I enjoy transforming complex ideas into reliable, efficient, and creative solutions.</p>
-                    <p>My journey has taken me through a variety of projects: developing an official Tetris game, creating a Minecraft port on Wii under strict constraints, and building a sports database web application during an international internship at Trinity College Dublin. Currently, I’m applying my skills at Michelin, where I work on predictive maintenance algorithms in embedded systems.</p>
-                    <p>Beyond coding, I enjoy exploring fields like machine learning, optimization, and 3D modeling. I also cultivate personal passions in music, athletics, and geography, which keep me curious, disciplined, and creative in both work and life.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">My Skills</h2>
-
-            <!-- Soft Skills -->
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <ul class="env-list">
-                        <li>Teamwork</li>
-                        <li>Leadership</li>
-                        <li>Adaptability</li>
-                        <li>General Knowledge</li>
-                        <li>Sociability</li>
-                        <li>Ability to Learn</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Programming Languages in 3 Columns -->
-            <div class="skill-category full-width">
-                <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                <div class="skills-columns">
-
-                    <!-- Expert -->
-                    <div class="skill-column">
-                        <h4>Expert</h4>
-                        <ul class="skill-list">
-                            <li>C</li>
-                            <li>C++</li>
-                            <li>Python</li>
-                        </ul>
-                    </div>
-
-                    <!-- Intermediate -->
-                    <div class="skill-column">
-                        <h4>Intermediate</h4>
-                        <ul class="skill-list">
-                            <li>Java</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ul>
-                    </div>
-
-                    <!-- Beginner -->
-                    <div class="skill-column">
-                        <h4>Beginner</h4>
-                        <ul class="skill-list">
-                            <li>JavaScript</li>
-                            <li>C#</li>
-                            <li>.NET</li>
-                            <li>Kotlin</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- 3 Cards aligned under Languages -->
+        <!-- Programming Languages in 3 Columns -->
+        <div class="skill-category full-width">
+            <h3><i class="fas fa-code"></i> Programming Languages</h3>
             <div class="skills-columns">
 
-                <!-- Web Development -->
-                <div class="skill-card">
-                    <h3><i class="fas fa-globe"></i> Web Development</h3>
-                    <ul class="card-list">
-                        <li>Angular</li>
-                        <li>Blazor</li>
-                        <li>ReactJS</li>
+                <!-- Expert -->
+                <div class="skill-column">
+                    <h4>Expert</h4>
+                    <ul class="skill-list">
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Python</li>
                     </ul>
                 </div>
 
-                <!-- Databases -->
-                <div class="skill-card">
-                    <h3><i class="fas fa-database"></i> Databases</h3>
-                    <ul class="card-list">
-                        <li>SQLite</li>
-                        <li>SQL Server</li>
-                        <li>Oracle</li>
+                <!-- Intermediate -->
+                <div class="skill-column">
+                    <h4>Intermediate</h4>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
                     </ul>
                 </div>
 
-                <!-- Graphics -->
-                <div class="skill-card">
-                    <h3><i class="fas fa-paint-brush"></i> Graphics</h3>
-                    <ul class="card-list">
-                        <li>SDL2</li>
-                        <li>Kivy</li>
-                        <li>Revolution GX</li>
+                <!-- Beginner -->
+                <div class="skill-column">
+                    <h4>Beginner</h4>
+                    <ul class="skill-list">
+                        <li>JavaScript</li>
+                        <li>C#</li>
+                        <li>.NET</li>
+                        <li>Kotlin</li>
                     </ul>
                 </div>
 
             </div>
+        </div>
 
-            <!-- Environments & Tools as a styled list -->
-            <div class="skill-category">
-                <h3><i class="fas fa-tools"></i> Environments & Tools</h3>
-                <ul class="env-list">
-                    <li><i class="fab fa-windows"></i> Windows</li>
-                    <li><i class="fab fa-linux"></i> Linux</li>
-                    <li><i class="fas fa-terminal"></i> WSL</li>
-                    <li><i class="fas fa-code"></i> Visual Studio</li>
-                    <li><i class="fas fa-laptop-code"></i> JetBrains IDE</li>
-                    <li><i class="fab fa-git-alt"></i> Git</li>
-                    <li><i class="fab fa-github"></i> GitHub</li>
-                    <li><i class="fab fa-gitlab"></i> GitLab</li>
+        <!-- 3 Cards aligned under Languages -->
+        <div class="skills-columns">
+
+            <!-- Web Development -->
+            <div class="skill-card">
+                <h3><i class="fas fa-globe"></i> Web Development</h3>
+                <ul class="card-list">
+                    <li>Angular</li>
+                    <li>Blazor</li>
+                    <li>ReactJS</li>
+                </ul>
+            </div>
+
+            <!-- Databases -->
+            <div class="skill-card">
+                <h3><i class="fas fa-database"></i> Databases</h3>
+                <ul class="card-list">
+                    <li>SQLite</li>
+                    <li>SQL Server</li>
+                    <li>Oracle</li>
+                </ul>
+            </div>
+
+            <!-- Graphics -->
+            <div class="skill-card">
+                <h3><i class="fas fa-paint-brush"></i> Graphics</h3>
+                <ul class="card-list">
+                    <li>SDL2</li>
+                    <li>Kivy</li>
+                    <li>Revolution GX</li>
                 </ul>
             </div>
 
         </div>
-    </section>
 
-    <style>
-        /* Extra styling for 3-column layout */
-        .skills-columns {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem; /* espace horizontal et vertical */
-        }
+        <!-- Environments & Tools as a styled list -->
+        <div class="skill-category">
+            <h3><i class="fas fa-tools"></i> Environments & Tools</h3>
+            <ul class="env-list">
+                <li><i class="fab fa-windows"></i> Windows</li>
+                <li><i class="fab fa-linux"></i> Linux</li>
+                <li><i class="fas fa-terminal"></i> WSL</li>
+                <li><i class="fas fa-code"></i> Visual Studio</li>
+                <li><i class="fas fa-laptop-code"></i> JetBrains IDE</li>
+                <li><i class="fab fa-git-alt"></i> Git</li>
+                <li><i class="fab fa-github"></i> GitHub</li>
+                <li><i class="fab fa-gitlab"></i> GitLab</li>
+            </ul>
+        </div>
 
-        .skill-column h4 {
-            margin-bottom: 0.5rem;
-            color: #4CAF50;
-            font-weight: bold;
-        }
+    </div>
+</section>
 
-        .skill-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skill-list li::before {
-            content: "➤  ";
-            color: #4CAF50;
-        }
-
-        /* Margin bottom pour toutes les "cases" de la section Skills */
-        #skills .skill-category,
-        #skills .skill-card,
-        #skills .skill-column {
-            margin-bottom: 20px; /* marge uniforme en bas */
-        }
-
-        /* Skill cards with hover */
-        .skill-card {
-            background: var(--background-light);
-            padding: 16px; /* padding interne */
-            border-radius: 8px;
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 10px 30px rgba(45, 138, 87, 0.2); /* Ombre verte */
-        }
-
-        .skill-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(45, 138, 87, 0.25); /* Hover plus prononcé */
-        }
-
-        .skill-card h3 {
-            margin-bottom: 12px;
-            color: #333;
-        }
-
-        .card-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .card-list li::before {
-            content: "➤ ";
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        /* Styled environment list */
-        .env-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.5rem 1rem;
-        }
-
-        .env-list li {
-            background: #f5f5f5;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .env-list li:hover {
-            background: #e0e0e0;
-            transform: translateX(4px);
-        }
-    </style>
-
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A modern, responsive e-commerce platform built with React and Node.js, featuring user authentication, payment integration, and admin dashboard.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
+<!-- Projects Section -->
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="project-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A modern, responsive e-commerce platform built with React and Node.js, featuring user authentication, payment integration, and admin dashboard.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Task Management App</h3>
-                        <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Task Management App</h3>
+                    <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Data Visualization Dashboard</h3>
-                        <p>An interactive dashboard for data visualization with multiple chart types, filtering capabilities, and real-time data updates.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Data Visualization Dashboard</h3>
+                    <p>An interactive dashboard for data visualization with multiple chart types, filtering capabilities, and real-time data updates.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Interests Section -->
-    <section id="interests" class="interests">
-        <div class="container">
-            <h2 class="section-title">My Interests</h2>
-            <div class="interests-grid">
-                <!-- Athlétisme -->
-                <div class="interest-card">
-                    <div class="interest-front">
-                        <h3><i class="fas fa-running"></i> Track and Field</h3>
-                        <p>Raise the bar and go beyond your limits</p>
-                    </div>
-                    <div class="interest-back">
-                        <video src="athletisme.mp4" autoplay muted loop></video>
-                    </div>
+<!-- Interests Section -->
+<section id="interests" class="interests">
+    <div class="container">
+        <h2 class="section-title">My Interests</h2>
+        <div class="interests-grid">
+            <!-- Athlétisme -->
+            <div class="interest-card">
+                <div class="interest-front">
+                    <h3><i class="fas fa-running"></i> Track and Field</h3>
+                    <p>Raise the bar and go beyond your limits</p>
                 </div>
+                <div class="interest-back">
+                    <video src="athletisme.mp4" autoplay muted loop></video>
+                </div>
+            </div>
 
-                <!-- Géographie -->
-                <div class="interest-card">
-                    <div class="interest-front">
-                        <h3><i class="fas fa-globe-europe"></i> Geography & Vexillology</h3>
-                        <p>Explore the world and its wonders</p>
-                    </div>
-                    <div class="interest-back">
-                        <img src="geographie.jpg" alt="Geography">
-                    </div>
+            <!-- Géographie -->
+            <div class="interest-card">
+                <div class="interest-front">
+                    <h3><i class="fas fa-globe-europe"></i> Geography & Vexillology</h3>
+                    <p>Explore the world and its wonders</p>
+                </div>
+                <div class="interest-back">
+                    <img src="geographie.jpg" alt="Geography">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <style>
-        .interests {
-            background: var(--background-light);
-        }
-
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .interest-card {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            perspective: 1000px;
-        }
-
-        .interest-front,
-        .interest-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            backface-visibility: hidden;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.8s ease;
-        }
-
-        .interest-front {
-            background: var(--card-background);
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .interest-front h3 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-        }
-
-        .interest-back {
-            transform: rotateY(180deg);
-            overflow: hidden;
-        }
-
-        .interest-back video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-
-        .interest-card:hover .interest-front {
-            transform: rotateY(180deg);
-        }
-
-        .interest-card:hover .interest-back {
-            transform: rotateY(360deg);
-        }
-    </style>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!</p>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>quinzipaul@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>(+33) 6 41 96 25 97</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Cournon d'Auvergne, France</span>
-                    </div>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title contact-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Let's Connect</h3>
+                <p>I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!</p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>quinzipaul@gmail.com</span>
                 </div>
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="from_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="reply_to" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-
-                <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-                <script>
-                    (function() {
-                        emailjs.init("6ZQgQEWG5Bni5KHHZ");
-                    })();
-
-                    document.getElementById('contact-form').addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        const form = this;
-                        const btn = form.querySelector('button');
-
-                        btn.textContent = 'Sending...';
-
-
-                        const serviceID = 'service_or2o21d';
-                        const templateID = 'template_jpd1uew';
-
-                        emailjs.sendForm(serviceID, templateID, form)
-                            .then(() => {
-                                alert('✅ Thank you for your message! I will get back to you soon.');
-                                form.reset();
-                                btn.textContent = 'Send Message';
-                            }, (error) => {
-                                alert('❌ Oops! Something went wrong...\n' + JSON.stringify(error));
-                                btn.textContent = 'Send Message';
-                            });
-                    });
-                </script>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(+33) 6 41 96 25 97</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cournon d'Auvergne, France</span>
+                </div>
             </div>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="from_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="reply_to" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+                (function() {
+                    emailjs.init("6ZQgQEWG5Bni5KHHZ");
+                })();
+
+                document.getElementById('contact-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const form = this;
+                    const btn = form.querySelector('button');
+
+                    btn.textContent = 'Sending...';
+
+                    const serviceID = 'service_or2o21d';
+                    const templateID = 'template_jpd1uew';
+
+                    emailjs.sendForm(serviceID, templateID, form)
+                        .then(() => {
+                            alert('✅ Thank you for your message! I will get back to you soon.');
+                            form.reset();
+                            btn.textContent = 'Send Message';
+                        }, (error) => {
+                            alert('❌ Oops! Something went wrong...\n' + JSON.stringify(error));
+                            btn.textContent = 'Send Message';
+                        });
+                });
+            </script>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://github.com/JeNeVoulaisPas"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/paul-quinzi-63pr"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p>&copy; 2025 Paul Quinzi Portfolio. All rights reserved.</p>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/JeNeVoulaisPas"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/paul-quinzi-63pr"><i class="fab fa-linkedin"></i></a>
         </div>
-    </footer>
+        <p>&copy; 2025 Paul Quinzi Portfolio. All rights reserved.</p>
+    </div>
+</footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
+    });
 
-        // Animate skill bars when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-progress');
-                    skillBars.forEach(bar => {
-                        bar.style.animation = 'fillBar 2s ease-in-out forwards';
-                    });
-                }
-            });
-        }, observerOptions);
+    // Animate skill bars when they come into view
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-        document.querySelectorAll('.skill-category').forEach(category => {
-            observer.observe(category);
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBars = entry.target.querySelectorAll('.skill-progress');
+                skillBars.forEach(bar => {
+                    bar.style.animation = 'fillBar 2s ease-in-out forwards';
+                });
+            }
         });
+    }, observerOptions);
 
-        // Mobile menu toggle (basic implementation)
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navMenu = document.querySelector('.nav-menu');
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-        });
-    </script>
+    document.querySelectorAll('.skill-category').forEach(category => {
+        observer.observe(category);
+    });
+
+    // Mobile menu toggle (basic implementation)
+    document.querySelector('.mobile-menu').addEventListener('click', function() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+</script>
 </body>
 </html>
