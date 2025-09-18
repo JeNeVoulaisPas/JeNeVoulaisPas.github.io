@@ -681,7 +681,17 @@ footer {
     transform: rotateY(360deg);
 }
 
-/* Contact title color override moved from inline */
 .contact-title {
     color: white;
 }
+
+.contact-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: -1rem auto 2rem auto;
+    max-width: 600px;
+    color: var(--text-light);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
