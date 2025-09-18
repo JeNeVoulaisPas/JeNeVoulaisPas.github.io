@@ -695,3 +695,38 @@ footer {
     line-height: 1.6;
 }
 
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-green: #66bb6a;
+        --secondary-green: #81c784;
+        --light-green: #a5d6a7;
+        --dark-green: #1b5e3f;
+        --accent-green: #4caf50;
+
+        --text-dark: #ecf0f1;      /* Texte clair */
+        --text-light: #f8f9fa;     /* Encore plus clair */
+        --background-light: #121212;
+        --card-background: #1e1e1e;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        --gradient: linear-gradient(135deg, #2e7d32, #43a047);
+    }
+
+    body {
+        background-color: var(--background-light);
+        color: var(--text-dark);
+    }
+
+    .skill-card h3,
+    .project-content p {
+        color: var(--text-light);
+    }
+
+    .env-list li {
+        background: #2a2a2a;
+    }
+    .env-list li:hover {
+        background: #333;
+    }
+}
+
