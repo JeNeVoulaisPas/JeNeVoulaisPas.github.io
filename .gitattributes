@@ -1,0 +1,26 @@
+# Normalisation des fins de ligne pour tous les fichiers texte
+* text=auto
+
+# Traitement des fichiers binaires
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.mp4 binary
+*.mov binary
+
+# Ignorer les différences pour les fichiers binaires
+*.png -diff
+*.jpg -diff
+*.jpeg -diff
+*.gif -diff
+*.ico -diff
+*.pdf -diff
+*.zip -diff
+*.gz -diff
+*.mp4 -diff
+*.mov -diff
