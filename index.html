@@ -22,6 +22,11 @@
                 <li><a href="#interests">Interests</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button id="btn-fr">FR</button>
+                <button id="btn-en">EN</button>
+            </div>
+
             <div class="mobile-menu">
                 <span></span>
                 <span></span>
@@ -189,43 +194,63 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-laptop-code"></i>
+                    <img src="sportdata.jpeg" alt="Sport data Project">
                 </div>
                 <div class="project-content">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A modern, responsive e-commerce platform built with React and Node.js, featuring user
-                        authentication, payment integration, and admin dashboard.</p>
+                    <h3>Sports data aggregation website</h3>
+                    <p>Python website project using large scale scraping and API requests to gather and display rugby data. </p>
                     <div class="project-links">
-                        <a href="#" class="project-link">Live Demo</a>
-                        <a href="#" class="project-link">GitHub</a>
+                        <a href="Final_Presentation_Trinity_Paul_Quinzi.mp4" class="project-link">Presentation</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-mobile-alt"></i>
+                    <img src="tetris.png" alt="Tetris Project">
                 </div>
                 <div class="project-content">
-                    <h3>Task Management App</h3>
-                    <p>A collaborative task management application with real-time updates, drag-and-drop functionality,
-                        and team collaboration features.</p>
+                    <h3>Tetris game in Python/Kivy</h3>
+                    <p>Unofficial Tetris implementation from scratch using Python & Kivy. The goal was to comply with the official standards and guidelines of Nintendo. </p>
                     <div class="project-links">
-                        <a href="#" class="project-link">Live Demo</a>
-                        <a href="#" class="project-link">GitHub</a>
+                        <a href="https://github.com/MissingNo42/Tetris" class="project-link">GitHub</a>
+                        <a href="https://perso.isima.fr/~paquinzi/Tetris%20Galaxy/www/index.html" class="project-link">Archive website (Deprecated)</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-chart-line"></i>
+                    <img src="miicraft.png" alt="Miicraft Project">
                 </div>
                 <div class="project-content">
-                    <h3>Data Visualization Dashboard</h3>
-                    <p>An interactive dashboard for data visualization with multiple chart types, filtering
-                        capabilities, and real-time data updates.</p>
+                    <h3>Miicraft - Minecraft for Wii in C++</h3>
+                    <p>Unofficial port of Minecraft on Nintendo Wii using C++ and the Revolution GX library, adhering to strict hardware constraints.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link">Live Demo</a>
-                        <a href="#" class="project-link">GitHub</a>
+                        <a href="https://github.com/MissingNo42/MiiCraft" class="project-link">GitHub</a>
+                        <a href="Présentation_Miicraft.mp4" class="project-link">Presentation</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="Geopolitique.png" alt="Geopolique Project">
+                </div>
+                <div class="project-content">
+                    <h3>Historical geopolitical simulation </h3>
+                    <p>Multi-agent simulation of geopolitical dynamics during the Cold War, visualized through an interactive world map.</p>
+                    <div class="project-links">
+                        <a href="Rapport.pdf" class="project-link">Project report</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="Cardamon.jpg" alt="TCG collection manager">
+                </div>
+                <div class="project-content">
+                    <h3>Cardamon - TCG collection manager</h3>
+                    <p>C# project using Blazor framework to manage TCG card collections ( Pokémon in that case .)</p>
+                    <div class="project-links">
+                        <a href="https://github.com/GuillaumeAssailly/Cardamon" class="project-link">Github</a>
                     </div>
                 </div>
             </div>
@@ -379,6 +404,229 @@
         const navMenu = document.querySelector('.nav-menu');
         navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
     });
+
+    // Traductions FR/EN
+    const translations = {
+        en: {
+            home: "Home",
+            about: "About",
+            skills: "Skills",
+            projects: "Projects",
+            interests: "Interests",
+            contact: "Contact",
+            welcome: "Welcome to My Portfolio",
+            subtitle: "Computer Science & Modeling Engineer | From code to strategy, leading teams and connecting domains",
+            learnMore: "Learn More About Me",
+            aboutMe: "About Me",
+            hello: "Hello! I’m a Computer Science and Modeling Engineer",
+            aboutP1: "I’m passionate about software development, algorithms, and problem-solving. With experience ranging from video game design to embedded systems, I enjoy transforming complex ideas into reliable, efficient, and creative solutions.",
+            aboutP2: "My journey has taken me through a variety of projects: developing an official Tetris game, creating a Minecraft port on Wii under strict constraints, and building a sports database web application during an international internship at Trinity College Dublin. Currently, I’m applying my skills at Michelin, where I work on predictive maintenance algorithms in embedded systems.",
+            aboutP3: "Beyond coding, I enjoy exploring fields like machine learning, optimization, and 3D modeling. I also cultivate personal passions in music, athletics, and geography, which keep me curious, disciplined, and creative in both work and life.",
+            mySkills: "My Skills",
+            softSkills: "Soft Skills",
+            teamwork: "Teamwork",
+            leadership: "Leadership",
+            adaptability: "Adaptability",
+            knowledge: "General Knowledge",
+            sociability: "Sociability",
+            learnAbility: "Ability to Learn",
+            progLang: "Programming Languages",
+            expert: "Expert",
+            intermediate: "Intermediate",
+            beginner: "Beginner",
+            webDev: "Web Development",
+            databases: "Databases",
+            graphics: "Graphics",
+            envTools: "Environments & Tools",
+            myProjects: "My Projects",
+            project3Title: "Tetris game in Python/Kivy",
+            project3Desc: "Unofficial Tetris implementation from scratch using Python & Kivy. The goal was to comply with the official standards and guidelines of Nintendo.",
+            project2Title: "Miicraft - Minecraft for wii in C++",
+            project2Desc: "Unofficial port of Minecraft on Nintendo Wii using C++ and the Revolution GX library, adhering to strict hardware constraints.",
+            project4Title: "Historical geopolitical simulation",
+            project4Desc: "Multi-agent simulation of geopolitical dynamics during the Cold War, visualized through an interactive world map.",
+            project1Title: "Sports data aggregation website",
+            project5Title: "Cardamon - TCG collection manager",
+            project5Desc: "C# project using Blazor framework to manage TCG card collections ( Pokémon in that case ).",
+            project1Desc: "Python website project using large scale scraping and API requests to gather and display rugby data.",
+            liveDemo: "Archive website (Deprecated)",
+            github: "GitHub",
+            presentation: "Presentation",
+            report: "Project report",
+            myInterests: "My Interests",
+            athletics: "Track and Field",
+            athleticsDesc: "Raise the bar and go beyond your limits",
+            geography: "Geography & Vexillology",
+            geographyDesc: "Explore the world and its wonders",
+            contactTitle: "Get In Touch",
+            contactIntro: "Please don’t hesitate to reach out via the following form!",
+            name: "Name",
+            email: "Email",
+            message: "Message",
+            sendMessage: "Send Message"
+        },
+        fr: {
+            home: "Accueil",
+            about: "À propos",
+            skills: "Compétences",
+            projects: "Projets",
+            interests: "Centres d’intérêt",
+            contact: "Contact",
+            welcome: "Bienvenue sur mon Portfolio",
+            subtitle: "Ingénieur en informatique et modélisation | Du code à la stratégie, en dirigeant des équipes et reliant les domaines",
+            learnMore: "En savoir plus sur moi",
+            aboutMe: "À propos de moi",
+            hello: "Bonjour ! Je suis ingénieur en informatique et modélisation",
+            aboutP1: "Je suis passionné par le développement logiciel, les algorithmes et la résolution de problèmes. Avec une expérience allant de la conception de jeux vidéo aux systèmes embarqués, j’aime transformer des idées complexes en solutions fiables, efficaces et créatives.",
+            aboutP2: "Mon parcours m’a conduit à divers projets : développement d’un jeu Tetris officiel, portage de Minecraft sur Wii avec des contraintes strictes, et création d’une application web de base de données sportive lors d’un stage international au Trinity College Dublin. Actuellement, j’applique mes compétences chez Michelin, où je travaille sur des algorithmes de maintenance prédictive en systèmes embarqués.",
+            aboutP3: "Au-delà du code, j’aime explorer des domaines comme l’apprentissage automatique, l’optimisation et la modélisation 3D. Je cultive aussi des passions personnelles dans la musique, l’athlétisme et la géographie, qui me gardent curieux, discipliné et créatif aussi bien au travail que dans la vie.",
+            mySkills: "Mes Compétences",
+            softSkills: "Compétences interpersonnelles",
+            teamwork: "Travail d’équipe",
+            leadership: "Leadership",
+            adaptability: "Adaptabilité",
+            knowledge: "Culture générale",
+            sociability: "Sociabilité",
+            learnAbility: "Capacité d’apprentissage",
+            progLang: "Langages de programmation",
+            expert: "Expert",
+            intermediate: "Intermédiaire",
+            beginner: "Débutant",
+            webDev: "Développement Web",
+            databases: "Bases de données",
+            graphics: "Graphismes",
+            envTools: "Environnements & Outils",
+            myProjects: "Mes Projets",
+            project3Title: "Tetris en Python/Kivy",
+            project3Desc: "Implémentation non officielle de Tetris from scratch en Python & Kivy. Le but était de respecter les standards et directives officiels de Nintendo.",
+            project2Title: "Miicraft - Minecraft pour Wii en C++",
+            project2Desc: "Portage non officiel de Minecraft sur Nintendo Wii en C++ et la bibliothèque Revolution GX, en respectant des contraintes matérielles strictes.",
+            project4Title: "Simulation géopolitique historique",
+            project4Desc: "Simulation multi-agents des dynamiques géopolitiques durant la Guerre Froide, visualisée à travers une carte du monde interactive.",
+            project1Title: "Site web d’agrégation de données sportives",
+            project1Desc: "Projet de site web en Python utilisant le scraping à grande échelle et des requêtes API pour collecter et afficher des données de rugby.",
+            project5Title: "Cardamon - Gestionnaire de collection de cartes",
+            project5Desc: "Projet en C# utilisant le framework Blazor pour gérer des collections de cartes (Pokémon dans ce cas).",
+            liveDemo: "Archive web (Obsolète)",
+            github: "GitHub",
+            presentation: "Présentation",
+            report: "Rapport de projet",
+            myInterests: "Mes Centres d’intérêt",
+            athletics: "Athlétisme",
+            athleticsDesc: "Monter la barre et dépasser ses limites",
+            geography: "Géographie & Vexillologie",
+            geographyDesc: "Explorez le monde et ses merveilles",
+            contactTitle: "Contactez-moi",
+            contactIntro: "N’hésitez pas à m’envoyer un message via le formulaire ci-dessous !",
+            name: "Nom",
+            email: "Email",
+            message: "Message",
+            sendMessage: "Envoyer"
+        }
+    };
+
+    // Fonction pour changer de langue
+    function setLanguage(lang) {
+        // Navbar
+        document.querySelector('a[href="#home"]').textContent = translations[lang].home;
+        document.querySelector('a[href="#about"]').textContent = translations[lang].about;
+        document.querySelector('a[href="#skills"]').textContent = translations[lang].skills;
+        document.querySelector('a[href="#projects"]').textContent = translations[lang].projects;
+        document.querySelector('a[href="#interests"]').textContent = translations[lang].interests;
+        document.querySelector('a[href="#contact"]').textContent = translations[lang].contact;
+
+        // Hero
+        document.querySelector(".hero h1").textContent = translations[lang].welcome;
+        document.querySelector(".hero-subtitle").textContent = translations[lang].subtitle;
+        document.querySelector(".cta-button").textContent = translations[lang].learnMore;
+
+        // About
+        document.querySelector("#about .section-title").textContent = translations[lang].aboutMe;
+        document.querySelector(".about-text h3").textContent = translations[lang].hello;
+        const aboutParas = document.querySelectorAll(".about-text p");
+        aboutParas[0].textContent = translations[lang].aboutP1;
+        aboutParas[1].textContent = translations[lang].aboutP2;
+        aboutParas[2].textContent = translations[lang].aboutP3;
+
+        // Skills
+        document.querySelector("#skills .section-title").textContent = translations[lang].mySkills;
+        document.querySelector(".skill-category h3").childNodes[1].textContent = " " + translations[lang].softSkills;
+        const softList = document.querySelectorAll(".skill-category ul.env-list li");
+        softList[0].textContent = translations[lang].teamwork;
+        softList[1].textContent = translations[lang].leadership;
+        softList[2].textContent = translations[lang].adaptability;
+        softList[3].textContent = translations[lang].knowledge;
+        softList[4].textContent = translations[lang].sociability;
+        softList[5].textContent = translations[lang].learnAbility;
+
+        document.querySelector(".full-width h3").childNodes[1].textContent = " " + translations[lang].progLang;
+        const columns = document.querySelectorAll(".skill-column h4");
+        columns[0].textContent = translations[lang].expert;
+        columns[1].textContent = translations[lang].intermediate;
+        columns[2].textContent = translations[lang].beginner;
+
+        document.querySelectorAll(".skill-card h3")[0].childNodes[1].textContent = " " + translations[lang].webDev;
+        document.querySelectorAll(".skill-card h3")[1].childNodes[1].textContent = " " + translations[lang].databases;
+        document.querySelectorAll(".skill-card h3")[2].childNodes[1].textContent = " " + translations[lang].graphics;
+
+        document.querySelector("#skills .skill-category:last-of-type h3").childNodes[1].textContent = " " + translations[lang].envTools;
+
+        // Projects
+        document.querySelector("#projects .section-title").textContent = translations[lang].myProjects;
+        const projectTitles = document.querySelectorAll(".project-content h3");
+        projectTitles[0].textContent = translations[lang].project1Title;
+        projectTitles[1].textContent = translations[lang].project2Title;
+        projectTitles[2].textContent = translations[lang].project3Title;
+        projectTitles[3].textContent = translations[lang].project4Title;
+        projectTitles[4].textContent = translations[lang].project5Title;
+        const projectDescs = document.querySelectorAll(".project-content p");
+        projectDescs[0].textContent = translations[lang].project1Desc;
+        projectDescs[1].textContent = translations[lang].project2Desc;
+        projectDescs[2].textContent = translations[lang].project3Desc;
+        projectDescs[3].textContent = translations[lang].project4Desc;
+        projectDescs[4].textContent = translations[lang].project5Desc;
+        const projectLinks = document.querySelectorAll(".project-link");
+        projectLinks.forEach(link => {
+            const text = link.textContent.toLowerCase();
+
+            if (text.includes("github")) {
+                link.textContent = translations[lang].github;
+            } else if (text.includes("archive") || text.includes("deprecated")) {
+                link.textContent = translations[lang].liveDemo;
+            } else if (text.includes("presentation")) {
+                link.textContent = translations[lang].presentation;
+            } else if (text.includes("report")) {
+                link.textContent = translations[lang].report;
+            }
+        });
+
+
+        // Interests
+        document.querySelector("#interests .section-title").textContent = translations[lang].myInterests;
+        const interests = document.querySelectorAll(".interest-front h3");
+        interests[0].childNodes[1].textContent = " " + translations[lang].athletics;
+        interests[1].childNodes[1].textContent = " " + translations[lang].geography;
+        const interestDescs = document.querySelectorAll(".interest-front p");
+        interestDescs[0].textContent = translations[lang].athleticsDesc;
+        interestDescs[1].textContent = translations[lang].geographyDesc;
+
+        // Contact
+        document.querySelector(".contact-title").textContent = translations[lang].contactTitle;
+        document.querySelector(".contact-intro").textContent = translations[lang].contactIntro;
+        document.querySelector('label[for="name"]').textContent = translations[lang].name;
+        document.querySelector('label[for="email"]').textContent = translations[lang].email;
+        document.querySelector('label[for="message"]').textContent = translations[lang].message;
+        document.querySelector(".submit-btn").textContent = translations[lang].sendMessage;
+    }
+
+    // Boutons
+    document.getElementById("btn-fr").addEventListener("click", () => setLanguage("fr"));
+    document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+
+    // Langue par défaut = EN
+    setLanguage("en");
+
 </script>
+
 </body>
 </html>
