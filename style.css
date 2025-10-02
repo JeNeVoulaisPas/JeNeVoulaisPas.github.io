@@ -788,4 +788,48 @@ footer {
     }
 }
 
+.custom-select {
+    position: relative;
+    width: 60px;
+    cursor: pointer;
+}
+
+.custom-select .selected {
+    background: var(--card-background);
+    border: 2px solid var(--primary-green);
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-select .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--card-background);
+    border: 2px solid var(--primary-green);
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.custom-select .options li {
+    padding: 6px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.custom-select .options li:hover {
+    background: var(--primary-green);
+    color: var(--text-light);
+}
+
+.custom-select.open .options {
+    display: flex;
+}
+
 

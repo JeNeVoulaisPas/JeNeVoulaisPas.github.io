@@ -7,6 +7,8 @@
     <title>Paul Quinzi Portfolio - Computer science engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.1.0/css/flag-icons.min.css">
+
 </head>
 <body>
 <!-- Navigation -->
@@ -23,12 +25,18 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="lang-switcher">
-                <select id="language-select">
-                    <option value="en" selected>🇬🇧 EN</option>
-                    <option value="fr">🇫🇷 FR</option>
-                    <option value="it">🇮🇹 IT</option>
-                </select>
+                <div class="custom-select" id="language-select">
+                    <div class="selected">
+                        <span class="fi fi-gb"></span>
+                    </div>
+                    <ul class="options">
+                        <li data-lang="en"><span class="fi fi-gb"></span></li>
+                        <li data-lang="fr"><span class="fi fi-fr"></span></li>
+                        <li data-lang="it"><span class="fi fi-it"></span></li>
+                    </ul>
+                </div>
             </div>
+
 
 
             <div class="mobile-menu">
@@ -692,14 +700,30 @@
         document.querySelector(".submit-btn").textContent = translations[lang].sendMessage;
     }
 
-    // Boutons
-    document.getElementById("language-select").addEventListener("change", (e) => {
-        setLanguage(e.target.value);
+    const langSelect = document.getElementById("language-select");
+    const selected = langSelect.querySelector(".selected");
+    const options = langSelect.querySelectorAll(".options li");
+
+    selected.addEventListener("click", () => {
+        langSelect.classList.toggle("open");
     });
 
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            const lang = option.getAttribute("data-lang");
+            setLanguage(lang);
 
-    // Langue par défaut = EN
+            // update affichage drapeau
+            selected.innerHTML = option.innerHTML;
+
+            // fermer menu
+            langSelect.classList.remove("open");
+        });
+    });
+
+    // Défaut : anglais
     setLanguage("en");
+
 
 </script>
 
