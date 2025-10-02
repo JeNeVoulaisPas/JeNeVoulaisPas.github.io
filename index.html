@@ -204,7 +204,7 @@
                     <h3>Sports data aggregation website</h3>
                     <p>Python website project using large scale scraping and API requests to gather and display rugby data. </p>
                     <div class="project-links">
-                        <a href="https://youtu.be/zmu_kmhmWwM" class="project-link">Presentation</a>
+                        <a href="https://youtu.be/zmu_kmhmWwM" class="project-link" data-key="presentation">Presentation</a>
                     </div>
                 </div>
             </div>
@@ -217,8 +217,8 @@
                     <h3>Miicraft - Minecraft for Wii in C++</h3>
                     <p>Unofficial port of Minecraft on Nintendo Wii using C++ and the Revolution GX library, adhering to strict hardware constraints.</p>
                     <div class="project-links">
-                        <a href="https://github.com/MissingNo42/MiiCraft" class="project-link">GitHub</a>
-                        <a href="https://youtu.be/wP0svs54ZcE" class="project-link">Presentation</a>
+                        <a href="https://github.com/MissingNo42/MiiCraft" class="project-link" data-key="github">GitHub</a>
+                        <a href="https://youtu.be/wP0svs54ZcE" class="project-link" data-key="presentation">Presentation</a>
                     </div>
                 </div>
             </div>
@@ -230,8 +230,8 @@
                     <h3>Tetris game in Python/Kivy</h3>
                     <p>Unofficial Tetris implementation from scratch using Python & Kivy. The goal was to comply with the official standards and guidelines of Nintendo. </p>
                     <div class="project-links">
-                        <a href="https://github.com/MissingNo42/Tetris" class="project-link">GitHub</a>
-                        <a href="https://perso.isima.fr/~paquinzi/Tetris%20Galaxy/www/index.html" class="project-link">Archive website (Deprecated)</a>
+                        <a href="https://github.com/MissingNo42/Tetris" class="project-link" data-key="github">GitHub</a>
+                        <a href="https://perso.isima.fr/~paquinzi/Tetris%20Galaxy/www/index.html" class="project-link" data-key="liveDemo">Archive website (Deprecated)</a>
                     </div>
                 </div>
             </div>
@@ -243,7 +243,7 @@
                     <h3>Historical geopolitical simulation </h3>
                     <p>Multi-agent simulation of geopolitical dynamics during the Cold War, visualized through an interactive world map.</p>
                     <div class="project-links">
-                        <a href="Rapport.pdf" class="project-link">Project report</a>
+                        <a href="Rapport.pdf" class="project-link" data-key="report">Project report</a>
                     </div>
                 </div>
             </div>
@@ -255,7 +255,7 @@
                     <h3>Cardamon - TCG collection manager</h3>
                     <p>C# project using Blazor framework to manage TCG card collections ( Pokémon in that case .)</p>
                     <div class="project-links">
-                        <a href="https://github.com/GuillaumeAssailly/Cardamon" class="project-link">Github</a>
+                        <a href="https://github.com/GuillaumeAssailly/Cardamon" class="project-link" data-key="github">Github</a>
                     </div>
                 </div>
             </div>
@@ -553,7 +553,7 @@
             learnMore: "Scopri di più su di me",
             aboutMe: "Chi sono",
             hello: "Ciao! Sono un ingegnere informatico e di modellazione",
-            aboutP1: "Sono appassionato di sviluppo software, algoritmi e problem solving. Con esperienze che spaziano dai videogiochi ai sistemi embedded, mi piace trasformare idee complesse in soluzioni affidabili ed efficienti.",
+            aboutP1: "Sono appassionato di sviluppo software, di algoritmi e di risoluzione dei problemi. Con esperienze che spaziano dai videogiochi ai sistemi embedded, mi piace trasformare idee complesse in soluzioni affidabili ed efficienti.",
             aboutP2: "Il mio percorso mi ha portato a lavorare su diversi progetti: sviluppo di un Tetris ufficiale, porting di Minecraft su Wii con vincoli hardware rigorosi e creazione di un'applicazione web per database sportivi durante un tirocinio internazionale al Trinity College di Dublino. Attualmente applico le mie competenze in Michelin, dove lavoro su algoritmi di manutenzione predittiva per sistemi embedded.",
             aboutP3: "Oltre al codice, mi interessa l'apprendimento automatico, l'ottimizzazione e la modellazione 3D. Coltivo anche passioni personali per la musica, l’atletica e la geografia, che alimentano la mia curiosità e creatività.",
             mySkills: "Le mie competenze",
@@ -666,19 +666,14 @@
         projectDescs[4].textContent = translations[lang].project5Desc;
         projectDescs[5].textContent = translations[lang].project6Desc;
         const projectLinks = document.querySelectorAll(".project-link");
+        // Liens projets (traduction via data-key)
+        const projectLinks = document.querySelectorAll(".project-link");
         projectLinks.forEach(link => {
-            const text = link.textContent.toLowerCase();
-
-            if (text.includes("github")) {
-                link.textContent = translations[lang].github;
-            } else if (text.includes("archive") || text.includes("deprecated")) {
-                link.textContent = translations[lang].liveDemo;
-            } else if (text.includes("presentation")) {
-                link.textContent = translations[lang].presentation;
-            } else if (text.includes("report")) {
-                link.textContent = translations[lang].report;
+            const key = link.getAttribute("data-key");
+            if (translations[lang][key]) {
+                link.textContent = translations[lang][key];
             }
-        });
+    });
 
 
         // Interests
