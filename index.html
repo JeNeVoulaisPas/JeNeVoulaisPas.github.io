@@ -23,9 +23,13 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="lang-switcher">
-                <button id="btn-fr">FR</button>
-                <button id="btn-en">EN</button>
+                <select id="language-select">
+                    <option value="en" selected>🇬🇧 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="it">🇮🇹 IT</option>
+                </select>
             </div>
+
 
             <div class="mobile-menu">
                 <span></span>
@@ -536,6 +540,66 @@
             email: "Email",
             message: "Message",
             sendMessage: "Envoyer"
+        },
+        it: {
+            home: "Home",
+            about: "Chi sono",
+            skills: "Competenze",
+            projects: "Progetti",
+            interests: "Interessi",
+            contact: "Contatti",
+            welcome: "Benvenuto nel mio Portfolio",
+            subtitle: "Ingegnere informatico e di modellazione | Dal codice alla strategia, guidando team e collegando domini",
+            learnMore: "Scopri di più su di me",
+            aboutMe: "Chi sono",
+            hello: "Ciao! Sono un ingegnere informatico e di modellazione",
+            aboutP1: "Sono appassionato di sviluppo software, algoritmi e problem solving. Con esperienze che spaziano dai videogiochi ai sistemi embedded, mi piace trasformare idee complesse in soluzioni affidabili ed efficienti.",
+            aboutP2: "Il mio percorso mi ha portato a lavorare su diversi progetti: sviluppo di un Tetris ufficiale, porting di Minecraft su Wii con vincoli hardware rigorosi e creazione di un'applicazione web per database sportivi durante un tirocinio internazionale al Trinity College di Dublino. Attualmente applico le mie competenze in Michelin, dove lavoro su algoritmi di manutenzione predittiva per sistemi embedded.",
+            aboutP3: "Oltre al codice, mi interessa l'apprendimento automatico, l'ottimizzazione e la modellazione 3D. Coltivo anche passioni personali per la musica, l’atletica e la geografia, che alimentano la mia curiosità e creatività.",
+            mySkills: "Le mie competenze",
+            softSkills: "Competenze trasversali",
+            teamwork: "Lavoro di squadra",
+            leadership: "Leadership",
+            adaptability: "Adattabilità",
+            knowledge: "Conoscenza generale",
+            sociability: "Sociabilità",
+            learnAbility: "Capacità di apprendimento",
+            progLang: "Linguaggi di programmazione",
+            expert: "Esperto",
+            intermediate: "Intermedio",
+            beginner: "Principiante",
+            webDev: "Sviluppo Web",
+            databases: "Basi di dati",
+            graphics: "Grafica",
+            envTools: "Ambienti & Strumenti",
+            myProjects: "I miei progetti",
+            project1Title: "Sito web di aggregazione dati sportivi",
+            project1Desc: "Progetto web in Python con scraping su larga scala e richieste API per raccogliere e visualizzare dati di rugby.",
+            project2Title: "Miicraft - Minecraft per Wii in C++",
+            project2Desc: "Porting non ufficiale di Minecraft su Nintendo Wii in C++ con la libreria Revolution GX, rispettando rigidi vincoli hardware.",
+            project3Title: "Tetris in Python/Kivy",
+            project3Desc: "Implementazione non ufficiale di Tetris da zero in Python & Kivy, conforme agli standard ufficiali Nintendo.",
+            project4Title: "Simulazione geopolitica storica",
+            project4Desc: "Simulazione multi-agente delle dinamiche geopolitiche durante la Guerra Fredda, con mappa interattiva.",
+            project5Title: "Cardamon - Gestore collezioni TCG",
+            project5Desc: "Progetto C# con framework Blazor per gestire collezioni di carte (Pokémon in questo caso).",
+            project6Title: "Bomberman - IA basata su regole",
+            project6Desc: "Sviluppo di un gioco e IA tramite apprendimento in un sistema a regole con problemi di teoria dei grafi.",
+            liveDemo: "Archivio web (Deprecato)",
+            github: "GitHub",
+            presentation: "Presentazione",
+            report: "Rapporto di progetto",
+            myInterests: "I miei interessi",
+            athletics: "Atletica",
+            athleticsDesc: "Supera i tuoi limiti",
+            geography: "Geografia & Vessillologia",
+            geographyDesc: "Esplora il mondo e le sue meraviglie",
+            contactTitle: "Contattami",
+            contactIntro: "Non esitare a scrivermi tramite il modulo qui sotto!",
+            name: "Nome",
+            email: "Email",
+            message: "Messaggio",
+            sendMessage: "Invia"
         }
     };
 
@@ -636,8 +700,10 @@
     }
 
     // Boutons
-    document.getElementById("btn-fr").addEventListener("click", () => setLanguage("fr"));
-    document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+    document.getElementById("language-select").addEventListener("change", (e) => {
+        setLanguage(e.target.value);
+    });
+
 
     // Langue par défaut = EN
     setLanguage("en");
