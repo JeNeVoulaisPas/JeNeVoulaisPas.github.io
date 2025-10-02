@@ -815,6 +815,10 @@ footer {
     display: none;
     flex-direction: column;
     z-index: 999;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
 }
 
 .custom-select .options li {
