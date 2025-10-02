@@ -27,15 +27,16 @@
             <div class="lang-switcher">
                 <div class="custom-select" id="language-select">
                     <div class="selected">
-                        <span class="fi fi-gb"></span>
+                        <span class="fi fi-gb"></span> EN
                     </div>
                     <ul class="options">
-                        <li data-lang="en"><span class="fi fi-gb"></span></li>
-                        <li data-lang="fr"><span class="fi fi-fr"></span></li>
-                        <li data-lang="it"><span class="fi fi-it"></span></li>
+                        <li data-lang="en"><span class="fi fi-gb"></span> EN</li>
+                        <li data-lang="fr"><span class="fi fi-fr"></span> FR</li>
+                        <li data-lang="it"><span class="fi fi-it"></span> IT</li>
                     </ul>
                 </div>
             </div>
+
 
 
 
@@ -713,10 +714,8 @@
             const lang = option.getAttribute("data-lang");
             setLanguage(lang);
 
-            // update affichage drapeau
             selected.innerHTML = option.innerHTML;
 
-            // fermer menu
             langSelect.classList.remove("open");
         });
     });
