@@ -666,8 +666,6 @@
         projectDescs[4].textContent = translations[lang].project5Desc;
         projectDescs[5].textContent = translations[lang].project6Desc;
         const projectLinks = document.querySelectorAll(".project-link");
-        // Liens projets (traduction via data-key)
-        const projectLinks = document.querySelectorAll(".project-link");
         projectLinks.forEach(link => {
             const key = link.getAttribute("data-key");
             if (translations[lang][key]) {
