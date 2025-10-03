@@ -661,7 +661,16 @@ footer {
     align-items: center;
     justify-content: center;
     transition: transform 0.8s ease;
+    overflow: hidden;
 }
+
+
+.interest-back img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
 
 .interest-front {
     background: var(--card-background);
