@@ -312,7 +312,7 @@
             <div class="interest-card">
                 <div class="interest-front">
                     <h3><i class="fas fa-guitar"></i> Guitar</h3>
-                    <p>Feel the melody and improvise</p>
+                    <p>Compose with your knowledge and improvise</p>
                 </div>
                 <div class="interest-back">
                     <img src="medias/images/guitars.png" alt="Different types of guitars">
@@ -495,6 +495,8 @@
             athleticsDesc: "Raise the bar and go beyond your limits",
             geography: "Geography & Vexillology",
             geographyDesc: "Explore the world and its wonders",
+            guitar: "Guitar",
+            guitarDesc: "Compose with your knowledge and improvise",
             contactTitle: "Get In Touch",
             contactIntro: "Please don’t hesitate to reach out via the following form!",
             name: "Name",
@@ -555,6 +557,8 @@
             athleticsDesc: "Monter la barre et dépasser ses limites",
             geography: "Géographie & Vexillologie",
             geographyDesc: "Explorez le monde et ses merveilles",
+            guitar: "Guitare",
+            guitarDesc: "Composer avec son savoir et improviser",
             contactTitle: "Contactez-moi",
             contactIntro: "N’hésitez pas à m’envoyer un message via le formulaire ci-dessous !",
             name: "Nom",
@@ -615,6 +619,8 @@
             athleticsDesc: "Supera i tuoi limiti",
             geography: "Geografia & Vessillologia",
             geographyDesc: "Esplora il mondo e le sue meraviglie",
+            guitar: "Chitarra",
+            guitarDesc: "Componi con la tua conoscenza e improvvisa",
             contactTitle: "Contattami",
             contactIntro: "Non esitare a scrivermi tramite il modulo qui sotto!",
             name: "Nome",
@@ -700,9 +706,11 @@
         const interests = document.querySelectorAll(".interest-front h3");
         interests[0].childNodes[1].textContent = " " + translations[lang].athletics;
         interests[1].childNodes[1].textContent = " " + translations[lang].geography;
+        interests[2].childNodes[1].textContent = " " + translations[lang].guitar;
         const interestDescs = document.querySelectorAll(".interest-front p");
         interestDescs[0].textContent = translations[lang].athleticsDesc;
         interestDescs[1].textContent = translations[lang].geographyDesc;
+        interestDescs[2].textContent = translations[lang].guitarDesc;
 
         // Contact
         document.querySelector(".contact-title").textContent = translations[lang].contactTitle;
